@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50ff0c757b9c4ac587e94f6b1835bbc1" Name="Diagram1">
+        <EntityTypeShape EntityType="QLXeMayModel1.ChiTietHoaDon" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.HangXe" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.HoaDon" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.KhachHang" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.NhaCungCap" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.NhanVien" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.TaiKhoan" Width="1.5" PointX="1.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLXeMayModel1.XeMay" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="QLXeMayModel1.FK__ChiTietHoa__MaHD__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__ChiTietHoa__MaXe__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__XeMay__MaHang__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__HoaDon__MaKH__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__HoaDon__MaNCC__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__HoaDon__MaNV__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__XeMay__MaNCC__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLXeMayModel1.FK__NhanVien__TenDan__4E88ABD4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

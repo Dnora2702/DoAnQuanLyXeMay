@@ -1,0 +1,67 @@
+<UserControl x:Class="QLXeMay.Views.HeThong.ThongTinCaNhanView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:helpers="clr-namespace:QLXeMay.Helpers">
+    <UserControl.Resources>
+        <!-- Tái sử dụng ImagePathConverter từ helpers nếu có, nếu không thì Bind trực tiếp -->
+        <helpers:ImagePathConverter x:Key="ImagePathConverter" />
+    </UserControl.Resources>
+    
+    <Grid Background="#F1F5F9">
+        <StackPanel Margin="24">
+            
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="THÔNG TIN TÀI KHOẢN" FontSize="24" FontWeight="Bold" Foreground="#1E293B"/>
+                <TextBlock Text="Quản lý thông tin cá nhân và ảnh đại diện" FontSize="13" Foreground="#64748B" Margin="0,4,0,0"/>
+            </StackPanel>
+
+            <Border Background="White" CornerRadius="12" Padding="32" MaxWidth="800" HorizontalAlignment="Left">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="16" ShadowDepth="2" Color="#94A3B8" Opacity="0.15"/>
+                </Border.Effect>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="220"/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Avatar Section -->
+                    <StackPanel Grid.Column="0" Margin="0,0,32,0" HorizontalAlignment="Center">
+                        <Ellipse Width="160" Height="160" Stroke="#E2E8F0" StrokeThickness="4" Margin="0,0,0,16">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding AvatarPath, Converter={StaticResource ImagePathConverter}, FallbackValue='/Images/Icons/user.png', TargetNullValue='/Images/Icons/user.png'}" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Button Content="📷 Đổi Ảnh Đại Diện" Command="{Binding ChonAnhCommand}" Style="{StaticResource GhostButton}" Width="160"/>
+                    </StackPanel>
+
+                    <!-- Info Section -->
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Tên đăng nhập" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,16" Background="#F1F5F9">
+                            <TextBox Text="{Binding NhanVienInfo.TenDangNhap}" Style="{StaticResource PlainTextBox}" IsReadOnly="True" Foreground="#64748B"/>
+                        </Border>
+
+                        <TextBlock Text="Họ Tên Nhân Viên *" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,16">
+                            <TextBox Text="{Binding NhanVienInfo.TenNV, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PlainTextBox}"/>
+                        </Border>
+
+                        <TextBlock Text="Số Điện Thoại" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,16">
+                            <TextBox Text="{Binding NhanVienInfo.SDT, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PlainTextBox}"/>
+                        </Border>
+
+                        <TextBlock Text="Địa Chỉ" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,24">
+                            <TextBox Text="{Binding NhanVienInfo.DiaChi, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource PlainTextBox}" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                        </Border>
+
+                        <Button Content="💾 LƯU THAY ĐỔI" Command="{Binding SaveCommand}" Style="{StaticResource PrimaryButton}" Height="44" FontSize="14" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

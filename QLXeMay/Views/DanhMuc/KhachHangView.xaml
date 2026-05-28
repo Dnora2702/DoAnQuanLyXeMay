@@ -1,0 +1,97 @@
+<UserControl x:Class="QLXeMay.Views.DanhMuc.KhachHangView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Background="#F1F5F9">
+        <StackPanel Margin="8">
+
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="QUẢN LÝ KHÁCH HÀNG"
+                           FontSize="22" FontWeight="Bold" Foreground="#1E293B"/>
+                <TextBlock Text="Quản lý thông tin khách hàng của cửa hàng"
+                           FontSize="13" Foreground="#64748B" Margin="0,4,0,0"/>
+            </StackPanel>
+
+            <!-- Form -->
+            <Border Background="White" CornerRadius="12" Padding="24" Margin="0,0,0,20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="14" ShadowDepth="2"
+                                      Color="#94A3B8" Opacity="0.12"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0,0,14,0">
+                        <TextBlock Text="Tên khách hàng *" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,0">
+                            <TextBox Text="{Binding TenKH, UpdateSourceTrigger=PropertyChanged}"
+                                     Style="{StaticResource PlainTextBox}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="0,0,14,0">
+                        <TextBlock Text="Số điện thoại" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,0">
+                            <TextBox Text="{Binding SDT, UpdateSourceTrigger=PropertyChanged}"
+                                     Style="{StaticResource PlainTextBox}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Margin="0,0,14,0">
+                        <TextBlock Text="Địa chỉ" Style="{StaticResource FieldLabel}"/>
+                        <Border Style="{StaticResource InputBorder}" Margin="0,0,0,0">
+                            <TextBox Text="{Binding DiaChi, UpdateSourceTrigger=PropertyChanged}"
+                                     Style="{StaticResource PlainTextBox}"/>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" Orientation="Horizontal"
+                                VerticalAlignment="Center">
+                        <Button Content="＋  THÊM"
+                                Command="{Binding AddCommand}"
+                                Style="{StaticResource PrimaryButton}"
+                                Width="90" Height="40"/>
+                        <Button Content="✎  SỬA"
+                                Command="{Binding UpdateCommand}"
+                                Style="{StaticResource PrimaryButton}"
+                                Background="#059669" Width="90" Height="40"
+                                Margin="10,0,0,0"/>
+                        <Button Content="✕  XÓA"
+                                Command="{Binding DeleteCommand}"
+                                Style="{StaticResource PrimaryButton}"
+                                Background="#DC2626" Width="80" Height="40"
+                                Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- DataGrid -->
+            <Border Background="White" CornerRadius="12">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="14" ShadowDepth="2"
+                                      Color="#94A3B8" Opacity="0.12"/>
+                </Border.Effect>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="12" RadiusY="12"
+                                       Rect="0,0,2000,370"/>
+                </Border.Clip>
+                <DataGrid ItemsSource="{Binding ListKhachHang}"
+                          SelectedItem="{Binding SelectedItem}"
+                          AutoGenerateColumns="False" IsReadOnly="True"
+                          Height="370">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã KH"          Binding="{Binding MaKH}"   Width="80"/>
+                        <DataGridTextColumn Header="Tên Khách Hàng" Binding="{Binding TenKH}"  Width="200"/>
+                        <DataGridTextColumn Header="Số Điện Thoại"  Binding="{Binding SDT}"    Width="150"/>
+                        <DataGridTextColumn Header="Địa Chỉ"        Binding="{Binding DiaChi}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
